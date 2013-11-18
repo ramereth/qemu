@@ -466,6 +466,8 @@ int spapr_rtas_device_tree_setup(void *fdt, hwaddr rtas_addr,
 
 #define RTAS_ERROR_LOG_MAX      2048
 
+#define RTAS_EVENT_SCAN_RATE    1
+
 typedef struct sPAPRTCETable sPAPRTCETable;
 
 #define TYPE_SPAPR_TCE_TABLE "spapr-tce-table"
@@ -488,6 +490,7 @@ struct sPAPRTCETable {
 
 struct sPAPREventLogEntry {
     int log_type;
+    bool exception;
     void *data;
     QTAILQ_ENTRY(sPAPREventLogEntry) next;
 };
